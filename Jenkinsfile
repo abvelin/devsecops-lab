@@ -26,19 +26,7 @@ pipeline {
  sh 'pytest tests/ -v'
  }
  }
- // ── STAGE 3 : SAST avec Bandit ──
- stage('SAST - Bandit Security Scan') {
- agent {
- docker { image 'python:3.11-slim' }
 
-}
- steps {
- echo ' Installation des dépendances...' 
- sh 'pip install -r app/requirements.txt pytest'
- echo ' Exécution des tests unitaires...' 
- sh 'pytest tests/ -v'
- }
- }
  // ── STAGE 3 : SAST avec Bandit ──
  stage('SAST - Bandit Security Scan') {
  agent {
